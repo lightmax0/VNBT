@@ -116,7 +116,7 @@ const completeAndClaimTask = async (task) => {
       status: "completed",
       points: task.points,
     };
-    const res = await fetch(`https://www.vanadatahero.com/api/tasks/${task.id}`, {
+    const res = await fetch(`https://www.vanadatahero.com/api/tasks/${task.name}`, {
       body: JSON.stringify(body),
       cache: "default",
       credentials: "include",
@@ -133,7 +133,7 @@ const completeAndClaimTask = async (task) => {
       method: "POST",
       mode: "cors",
       redirect: "follow",
-      referrer: "https://www.vanadatahero.com/challenges",
+      referrer: "https://www.vanadatahero.com/home",
       referrerPolicy: "strict-origin-when-cross-origin",
     });
     if (res.ok) {
@@ -214,7 +214,7 @@ const runScript = async () => {
     }
   }
 
-  const totalTime = 60 * 60 * 1000;
+  const totalTime = 30 * 60 * 1000;
   let elapsedTime = 0;
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -226,7 +226,7 @@ const runScript = async () => {
     elapsedTime += 20000;
   }
 
-  console.log(`Successfully Tapping for 1 Hour`);
+  console.log(`Successfully Tapping for 30 Minutes`);
   console.log(`ACCOUNT Process complete`);
   console.log();
 };
