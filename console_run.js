@@ -64,6 +64,7 @@ const startMining = async () => {
     } else if (res.status == 400) {
       const data = await res.json();
       console.log(data.message);
+      process.exit(1);
     } else {
       console.log(`-> Error Start Mining : ${res.status}-${res.statusText}`);
     }
