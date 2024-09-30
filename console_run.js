@@ -97,7 +97,7 @@ const getTask = async () => {
       const data = await res.json();
       console.log(`-> Successfully Get Task`);
       tasks = data.tasks.filter(
-        (item) => item.id != 1 && item.id != 17 && item.id != 5
+        (item) => item.id != 1 && item.id != 17 && item.id != 5 && item.id != 2
       );
     } else if (res.status == 400) {
       const data = await res.json();
@@ -116,7 +116,7 @@ const completeAndClaimTask = async (task) => {
       status: "completed",
       points: task.points,
     };
-    const res = await fetch(`https://www.vanadatahero.com/api/tasks/${task.name}`, {
+    const res = await fetch(`https://www.vanadatahero.com/api/tasks/${task.id}`, {
       body: JSON.stringify(body),
       cache: "default",
       credentials: "include",
@@ -157,42 +157,6 @@ const runScript = async () => {
   console.log("=     Created by Widiskel    =");
   console.log("==============================");
   console.log();
-  console.log(`                                 
-                      ..                                 
-                     .;:.                                 
-                    .;ol,.                                
-                   .;ooc:'                                
-            ..    .;ooccc:'.    ..                        
-          .',....'cdxlccccc;.....,'.                      
-         .;;..'';clolccccccc:,''..;;.                     
-        ':c'..':cccccccccccccc;...'c:.                    
-       ':cc,.'ccccccccccccccccc:..;cc:'                   
-    ...:cc;.':cccccccccccccccccc:..:cc:...                
-   .;';cc;.':;;:cccccccccccccc:;;;'.;cc,,;.               
-  .cc':c:.',.....;cccccccccc;.....,..:c:'c:               
-  ,x:'cc;.,'     .':cccccc:'.     ',.;cc':x'              
-  lO,'cc;.;,       .;cccc:.       ,;.;cc';0l              
- .o0;.;c;.,:'......',''''''......':,.;c;.:0l.             
- .lxl,.;,..;c::::;:,.    .,:;::::c;..,;.,oxl.             
- .lkxOl..  ..'..;::'..''..'::;..'..  ..c0xkl.             
-  .cKMx.        .;c:;:cc:;:c:.        .xMKc.              
-    ;KX:         ;o::l:;cc;o:.        ;KK;                
-     :KK:.       ,d,cd,'ol'o:       .:0K:                 
-      ;0NOl:;:loo;. ... .. .;ldlc::lkN0:                  
-       .lONNNKOx0Xd,;;'.,:,lKKkk0XNN0o.                   
-         .','.. .lX0doooodOXd.  .','.                     
-                 .,okkddxkd;.                             
-                    'oxxd;.                               
-   ........................................                              
-   .OWo  xNd lox  xxl Ald   xoc dakkkkkxsx.              
-   .OWo  o0W cXW  dM0 MMN   lNK laddKMNkso.               
-   .kMKoxsNN oWX  dW0 MMMWO lWK    axM0   .                
-   .OMWXNaMX dM0  kM0 MMKxNXKW0    axMk   .                 
-   .OMk  dWK oWX XWdx Mxx  XMMO    akMx   .                 
-   'OWo  dM0 'kNNXNNd DMD   OWk    aoWd   .                 
-   ........................................                 
-                                                                      
-`);
 
   console.log(`-> Getting Player Information`);
   await getPlayerInfo();
@@ -214,7 +178,7 @@ const runScript = async () => {
     }
   }
 
-  const totalTime = 30 * 60 * 1000;
+  const totalTime = 60 * 60 * 1000;
   let elapsedTime = 0;
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -226,7 +190,7 @@ const runScript = async () => {
     elapsedTime += 20000;
   }
 
-  console.log(`Successfully Tapping for 30 Minutes`);
+  console.log(`Successfully Tapping for 1 Hour`);
   console.log(`ACCOUNT Process complete`);
   console.log();
 };
