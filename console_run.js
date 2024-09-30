@@ -64,7 +64,6 @@ const startMining = async () => {
     } else if (res.status == 400) {
       const data = await res.json();
       console.log(data.message);
-      process.on('SIGHUP', () => console.log('Received: SIGHUP')); 
     } else {
       console.log(`-> Error Start Mining : ${res.status}-${res.statusText}`);
     }
